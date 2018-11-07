@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Web Portfolio: Michael Sun</title>
+		<style>
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #333;
+		}
+
+		li {
+			float: left;
+		}
+
+		li a {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+
+		li a:hover:not(.active) {
+			background-color: #111;
+			color: #DCDCDC;
+		}
+
+		.active {
+			background-color: #4CAF50;
+			color: #DCDCDC;
+		}
+		
+		.accordion {
+			background-color: #eee;
+			color: #444;
+			cursor: pointer;
+			padding: 18px;
+			width: 100%;
+			text-align: left;
+			border: none;
+			outline: none;
+			transition: 0.4s;
+		}
+
+		.active, .accordion:hover {
+			background-color: #ccc;
+		}
+
+		.accordion:after {
+			content: '\002B';
+			color: #777;
+			font-weight: bold;
+			float: right;
+			margin-left: 5px;
+		}
+
+		.active:after {
+			content: "\2212";
+		}
+
+		.panel {
+			padding: 0 18px;
+			background-color: white;
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.2s ease-out;
+		}
+		</style>
+	</head>
+	<body style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFZwu5ioHvZDVzSj_jYNm2_cTtyiTsuhUcSupZJjIYdqJ-DZ2NhA');background-repeat: no-repeat; background-size: cover">
+		<p id="time" style="text-align:right;"></p>
+		<p style="text-align:center;"> <h1 style="text-align:center;color:000000;">Web Portfolio</h1> </p>
+		<ul>
+			<li><a class="active" href="index.html">Home</a></li>
+			<li><a href="About_Me.html">About Me</a></li>
+			<li><a href="Course_Info.html">Course Info</a></li>
+			<li><a href="Contact.html">Contact</a></li>
+		</ul>
+		<main>
+			<p style="color:000000;">This portfolio contains an overview of my work in this course. By the way - all the fun features are down at the bottom of the page!</p>
+			<h2 style="color:000000;">Random Info</h2>
+				<p style="color:000000;">Just an ordinary student learning the basics of HTML. I enjoy spending way too much of my free time on the Internet, whether it's chatting with my friends or reading science articles. </p>
+			<h2 style="color:000000;">Course Content</h2>
+			<button class="accordion">Unit 1</button>
+			<div class="panel">
+			<p>This section will include links to my work for this unit, once completed.</p>
+			</div>
+			<button class="accordion">Unit 2</button>
+			<div class="panel">
+			<p>This section will include links to my work for this unit, once completed.</p>
+			</div>
+			<button class="accordion">Unit 3</button>
+			<div class="panel">
+			<p>This section will include links to my work for this unit, once completed.</p>
+			</div>
+			<button class="accordion">Unit 4</button>
+			<div class="panel">
+			<p>This section will include links to my work for this unit, once completed.</p>
+			</div>
+			<button class="accordion">Unit 5</button>
+			<div class="panel">
+			<p>This section will include links to my work for this unit, once completed.</p>
+			</div>
+			<button class="accordion">Unit 6</button>
+			<div class="panel">
+			<p>This section will include links to my work for this unit, once completed.</p>
+			</div>
+			<button class="accordion">Unit 7</button>
+			<div class="panel">
+			<p>This section will include links to my work for this unit, once completed.</p>
+			</div>
+			<h2 style="color:000000;">Fun Stuff</h2>
+			<p onclick="caption()" style="text-align:center;"> <img src="https://i.gifer.com/Llkh.gif"" alt="Misaka Mikoto" /> </p>
+			<div id="misaka" style="text-align:center;color:000000;visibility:hidden;">
+			The character Misaka Mikoto from the anime series Toaru Majutsu no Index.
+			</div>
+			<p style="text-align:center;"> <button "type="button" onclick="myFunctionB()">Click to change to background 1.</button> <button "type="button" onclick="myFunctionA()">Click to change to background 2.</button></p>
+			<div id="demo" onclick="Function()" style="text-align:center;color:000000;">
+			Click on me to move me left.
+			</div>
+		<!-- content -->
+		</main>
+		<script>
+		function myFunctionA() {
+			document.body.style.backgroundColor = "#f3f3f3";
+			document.body.style.backgroundImage = "url('https://images.wallpaperscraft.com/image/light_faded_background_85547_300x168.jpg')";
+		}
+		function myFunctionB() {
+			document.body.style.backgroundColor = "#f3f3f3";
+			document.body.style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFZwu5ioHvZDVzSj_jYNm2_cTtyiTsuhUcSupZJjIYdqJ-DZ2NhA')";
+		}
+		function Function() {
+			document.getElementById("demo").style.textAlign = "left";
+		}
+		function caption() {
+			document.getElementById("misaka").style.visibility = "visible";
+		}
+		var d = new Date();
+		document.getElementById("time").innerHTML = d;
+		var acc = document.getElementsByClassName("accordion");
+		var i;
+
+		for (i = 0; i < acc.length; i++) {
+			acc[i].addEventListener("click", function() {
+				/* Toggle between adding and removing the "active" class,
+				to highlight the button that controls the panel */
+				this.classList.toggle("active");
+
+				/* Toggle between hiding and showing the active panel */
+				var panel = this.nextElementSibling;
+				if (panel.style.maxHeight){
+					panel.style.maxHeight = null;
+				} else {
+					panel.style.maxHeight = panel.scrollHeight + "px";
+				} 
+			});
+		}
+		</script>
+	</body>
+</html>
+
+	
